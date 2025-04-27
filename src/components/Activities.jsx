@@ -1,4 +1,4 @@
-import Activity from "./Activity.js";
+import Activity from "./Activity.jsx";
 function Activities({
   activities,
   children,

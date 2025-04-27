@@ -1,24 +1,53 @@
-import Button from "../../components/common/Button";
-import InputForm from "../../components/common/InputForm";
+import { useState } from "react";
+import Button from "../common/Button";
+import InputForm from "../common/InputForm";
 import LoginHeader from "../common/LoginHeader";
 import SignUpInToggleBtn from "../common/SignUpInToggleBtn";
 
 const inputs = [
   {
+    name: "email",
     placeholder: "Email",
   },
   {
+    name: "password",
     placeholder: "Password",
+    type: "password",
   },
 ];
+
 function SignInForm({ handleHasAccount, hasAccount }) {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleChange(fieldName, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [fieldName]: value,
+    }));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    // 🔥 All your collected inputs
+    // call your API to save in database
+  };
+
   return (
     <div className="max-w-sm w-full text-gray-600 space-y-5">
       <LoginHeader>Log in to your account</LoginHeader>
       <form className="">
-        <InputForm inputs={inputs} />
+        <InputForm inputs={inputs} onChange={handleChange} values={formData} />
 
-        <Button margin="mt-14" padding="py-2 px-3" width="w-full">
+        <Button
+          margin="mt-14"
+          padding="py-2 px-3"
+          width="w-full"
+          onClick={handleSubmit}
+        >
           Sign in
         </Button>
       </form>

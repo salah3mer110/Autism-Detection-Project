@@ -39,20 +39,13 @@ const inputs = {
 function SignIn({ onCloseSignIn }) {
   const [hasAccount, setHasAccount] = useState(-1);
   const [signUpMobility, setSignUpMobility] = useState(1);
+
   function handleHasAccount(e) {
     e.preventDefault();
     setHasAccount((account) => -account);
     setSignUpMobility(1);
   }
 
-  function handleSignUpNext(e) {
-    e.preventDefault();
-    if (signUpMobility < 3) setSignUpMobility((mobility) => mobility + 1);
-  }
-  function handleSignUpBack(e) {
-    e.preventDefault();
-    if (signUpMobility > 1) setSignUpMobility((mobility) => mobility - 1);
-  }
   return (
     <div
       className={`fixed z-[100] inset-0 w-full flex justify-center items-center font-nunito`}
@@ -75,8 +68,6 @@ function SignIn({ onCloseSignIn }) {
           <SignUpForm
             handleHasAccount={handleHasAccount}
             hasAccount={hasAccount}
-            onNext={handleSignUpNext}
-            onBack={handleSignUpBack}
             signUpMobility={signUpMobility}
             setSignUpMobility={setSignUpMobility}
           />

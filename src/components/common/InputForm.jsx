@@ -1,4 +1,5 @@
-function InputForm({ inputs }) {
+function InputForm({ inputs, onChange, values }) {
+  console.log(inputs);
   return (
     <div>
       {inputs.map((input, index) => (
@@ -6,7 +7,10 @@ function InputForm({ inputs }) {
           key={index}
           className="border-b-2 border-[var(--secondary)] block focus:outline-none w-full py-3"
           placeholder={input.placeholder}
-        ></input>
+          value={values?.[input?.name] || ""}
+          onChange={(e) => onChange?.(input?.name, e.target.value)}
+          type={input?.type || "text"}
+        />
       ))}
     </div>
   );
