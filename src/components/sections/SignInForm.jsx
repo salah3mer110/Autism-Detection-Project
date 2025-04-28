@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Button from "../common/Button";
 import InputForm from "../common/InputForm";
 import LoginHeader from "../common/LoginHeader";
@@ -8,34 +7,25 @@ const inputs = [
   {
     name: "email",
     placeholder: "Email",
+    type: "email",
+    required: true,
   },
   {
     name: "password",
     placeholder: "Password",
     type: "password",
+    required: true,
   },
 ];
 
-function SignInForm({ handleHasAccount, hasAccount }) {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  function handleChange(fieldName, value) {
-    setFormData((prev) => ({
-      ...prev,
-      [fieldName]: value,
-    }));
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // 🔥 All your collected inputs
-    // call your API to save in database
-  };
-
+function SignInForm({
+  handleHasAccount,
+  hasAccount,
+  handleChange,
+  formData,
+  setFormData,
+  handleSubmit,
+}) {
   return (
     <div className="max-w-sm w-full text-gray-600 space-y-5">
       <LoginHeader>Log in to your account</LoginHeader>

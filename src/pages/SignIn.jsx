@@ -3,49 +3,44 @@ import SignInForm from "../components/sections/SignInForm";
 import SignUpForm from "../components/sections/SignUpForm";
 import { FaTimes } from "react-icons/fa";
 
-const inputs = {
-  1: [
-    {
-      placeholder: "Fullname",
-    },
-    {
-      placeholder: "Child Fullname",
-    },
-    {
-      placeholder: "Email Address",
-    },
-  ],
-  2: [
-    {
-      placeholder: "Child Age",
-    },
-    {
-      placeholder: "Skill you want to develop",
-    },
-    {
-      placeholder: "Preferred Activities ",
-    },
-  ],
-  3: [
-    {
-      placeholder: "Password",
-    },
-    {
-      placeholder: "confirm password",
-    },
-  ],
-};
-
 function SignIn({ onCloseSignIn }) {
-  const [hasAccount, setHasAccount] = useState(-1);
+  const [hasAccount, setHasAccount] = useState(true);
   const [signUpMobility, setSignUpMobility] = useState(1);
+  const [formData, setFormData] = useState(
+    !hasAccount
+      ? {
+          fullname: "",
+          childFullname: "",
+          email: "",
+          childAge: "",
+          skill: "",
+          preferredActivities: "",
+          password: "",
+          confirmPassword: "",
+        }
+      : {
+          email: "",
+          password: "",
+        }
+  );
+
+  function handleChange(fieldName, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [fieldName]: value,
+    }));
+  }
 
   function handleHasAccount(e) {
     e.preventDefault();
-    setHasAccount((account) => -account);
+    setHasAccount((account) => !account);
     setSignUpMobility(1);
   }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({});
+  };
   return (
     <div
       className={`fixed z-[100] inset-0 w-full flex justify-center items-center font-nunito`}
@@ -59,10 +54,14 @@ function SignIn({ onCloseSignIn }) {
           onClick={onCloseSignIn}
           className="absolute right-3 top-3 w-6 h-6 text-[#8E8585] rounded-full transition-all hover:text-[#555555] duration-100 cursor-pointer"
         />
-        {hasAccount === -1 ? (
+        {hasAccount ? (
           <SignInForm
             handleHasAccount={handleHasAccount}
             hasAccount={hasAccount}
+            handleChange={handleChange}
+            formData={formData}
+            setFormData={setFormData}
+            handleSubmit={handleSubmit}
           />
         ) : (
           <SignUpForm
@@ -70,6 +69,10 @@ function SignIn({ onCloseSignIn }) {
             hasAccount={hasAccount}
             signUpMobility={signUpMobility}
             setSignUpMobility={setSignUpMobility}
+            handleChange={handleChange}
+            formData={formData}
+            setFormData={setFormData}
+            handleSubmit={handleSubmit}
           />
         )}
       </div>
@@ -78,48 +81,3 @@ function SignIn({ onCloseSignIn }) {
 }
 
 export default SignIn;
-{
-  /* <div class="flex items-center justify-between text-sm">
-            <div class="flex items-center gap-x-3">
-              <input
-                type="checkbox"
-                id="remember-me-checkbox"
-                class="checkbox-item peer hidden"
-              />
-              <label
-                for="remember-me-checkbox"
-                class="relative flex w-5 h-5 bg-white peer-checked:bg-indigo-600 rounded-md border ring-offset-2 ring-indigo-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
-              ></label>
-              <span>Remember me</span>
-            </div>
-            <a
-              href="javascript:void(0)"
-              class="text-center text-indigo-600 hover:text-indigo-500"
-            >
-              Forgot password?
-            </a>
-          </div> */
-}
-
-{
-  /* <div>
-            <label class="font-medium"> Email </label>
-            <input
-              type="email"
-              required
-              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-            />
-          </div>
-          <div>
-            <label class="font-medium"> Password </label>
-            <input
-              type="password"
-              required
-              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-            />
-          </div> */
-}
-{
-  /* <div className="fixed z-[100] inset-0 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black opacity-30 z-[-1]"></div> */
-}

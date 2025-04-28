@@ -4,18 +4,21 @@ import Button from "../common/Button";
 import InputForm from "../common/InputForm";
 import SignUpCircle from "../common/SignUpCircle";
 import SignUpLine from "../common/SignUpLine";
-import { useState } from "react";
 
 const inputs = {
   1: [
-    { name: "fullname", placeholder: "Fullname" },
-    { name: "childFullname", placeholder: "Child Fullname" },
-    { name: "email", placeholder: "Email Address" },
+    { name: "fullname", placeholder: "Fullname", type: "text" },
+    { name: "childFullname", placeholder: "Child Fullname", type: "text" },
+    { name: "email", placeholder: "Email Address", type: "email" },
   ],
   2: [
-    { name: "childAge", placeholder: "Child Age" },
-    { name: "skill", placeholder: "Skill you want to develop" },
-    { name: "preferredActivities", placeholder: "Preferred Activities" },
+    { name: "childAge", placeholder: "Child Age", type: "number" },
+    { name: "skill", placeholder: "Skill you want to develop", type: "text" },
+    {
+      name: "preferredActivities",
+      placeholder: "Preferred Activities",
+      type: "text",
+    },
   ],
   3: [
     { name: "password", placeholder: "Password", type: "password" },
@@ -32,21 +35,13 @@ function SignUpForm({
   hasAccount,
   signUpMobility,
   setSignUpMobility,
+  handleChange,
+  formData,
+  handleSubmit,
 }) {
-  const [formData, setFormData] = useState({
-    fullname: "",
-    childFullname: "",
-    email: "",
-    childAge: "",
-    skill: "",
-    preferredActivities: "",
-    password: "",
-    confirmPassword: "",
-  });
-
   function handleSignUpNext(e, btnType) {
     e.preventDefault();
-    if (btnType === "Sign Up") console.log(formData);
+    if (btnType === "Sign Up") handleSubmit(e);
 
     if (signUpMobility < 3) setSignUpMobility((mobility) => mobility + 1);
   }
@@ -55,17 +50,6 @@ function SignUpForm({
     if (signUpMobility > 1) setSignUpMobility((mobility) => mobility - 1);
   }
 
-  function handleChange(fieldName, value) {
-    setFormData((prev) => ({
-      ...prev,
-      [fieldName]: value,
-    }));
-  }
-
-  const handleSubmit = () => {
-    console.log(formData); // 🔥 All your collected inputs
-    // call your API to save in database
-  };
   return (
     <div className="max-w-sm w-full text-gray-600 space-y-5">
       <LoginHeader>Sign Up</LoginHeader>

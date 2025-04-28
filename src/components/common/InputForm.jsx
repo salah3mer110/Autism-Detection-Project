@@ -9,7 +9,8 @@ function InputForm({ inputs, onChange, values }) {
           placeholder={input.placeholder}
           value={values?.[input?.name] || ""}
           onChange={(e) => onChange?.(input?.name, e.target.value)}
-          type={input?.type || "text"}
+          type={input?.type}
+          required={input.required}
         />
       ))}
     </div>
