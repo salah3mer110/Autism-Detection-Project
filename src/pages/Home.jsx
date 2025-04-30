@@ -1,9 +1,9 @@
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/sections/HeroSection";
 import Header from "../layouts/Header";
-import HowWebsiteHelp from "../components/HowWebsiteHelp";
-import WhatIsAutism from "../components/WhatIsAutism";
-import ExploreActivity from "../components/ExploreActivity";
-import Partner from "../components/Partner";
+import HowWebsiteHelp from "../components/sections/HowWebsiteHelp";
+import WhatIsAutism from "../components/sections/WhatIsAutism";
+import ExploreActivity from "../components/sections/ExploreActivity";
+import Partner from "../components/sections/Partner";
 import Footer from "../layouts/Footer";
 import Star from "../components/iconsComponents/Star";
 

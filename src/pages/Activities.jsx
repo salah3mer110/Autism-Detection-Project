@@ -4,7 +4,6 @@ import Sidebar from "../components/common/SideBar";
 import Game from "../components/common/Game";
 import chessOnlineImg from "../assets/Images/Activities/Games/Chess.jpg";
 import ticToeImg from "../assets/Images/Activities/Games/TicToe.jpeg";
-import ludoWorldImg from "../assets/Images/Activities/Games/LudoWorld.jpg";
 import gtaImg from "../assets/Images/Activities/Games/gta.jpg";
 import { useState } from "react";
 import Button from "../components/common/Button";

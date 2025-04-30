@@ -1,4 +1,4 @@
-import autismImage from "../assets/Images/Home/autism.png";
+import autismImage from "../../assets/Images/Home/autism.png";
 function WhatIsAutism() {
   return (
     <div className="w-[calc(85%)] flex justify-between items-center py-24">

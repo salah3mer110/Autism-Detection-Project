@@ -1,7 +1,7 @@
 import EngagingActivities from "../../assets/Images/AboutUs/Engaging_Activities.png";
 import ExpertInsights from "../../assets/Images/AboutUs/Expert_Insights_&_Guidance.png";
 import PersonalizedAssessments from "../../assets/Images/AboutUs/Personalized_Autism_Assessments.png";
-import Activities from "../Activities.jsx";
+import Activities from "./Activities";
 const activities = {
   displayMode: "image",
   steps: [

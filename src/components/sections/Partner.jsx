@@ -1,6 +1,6 @@
-import Creativa from "../assets/Images/Home/Creativa.png";
-import Khan from "../assets/Images/Home/Khan.png";
-import Online from "../assets/Images/Home/Online.png";
+import Creativa from "../../assets/Images/Home/Creativa.png";
+import Khan from "../../assets/Images/Home/Khan.png";
+import Online from "../../assets/Images/Home/Online.png";
 const partnerImgs = [
   {
     imageUrl: Creativa,

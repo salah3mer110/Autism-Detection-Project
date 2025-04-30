@@ -1,9 +1,9 @@
 // export default ExploreActivity;
 import Activities from "./Activities";
-import Educational_Videos from "../assets/Images/Home/Educational_Videos.png";
-import Fun_Games from "../assets/Images/Home/Fun_Games.png";
-import Creative_Drawing from "../assets/Images/Home/Creative_Drawing.png";
-import Interactive_Communication from "../assets/Images/Home/Interactive_Communication.png";
+import Educational_Videos from "../../assets/Images/Home/Educational_Videos.png";
+import Fun_Games from "../../assets/Images/Home/Fun_Games.png";
+import Creative_Drawing from "../../assets/Images/Home/Creative_Drawing.png";
+import Interactive_Communication from "../../assets/Images/Home/Interactive_Communication.png";
 const activities = {
   displayMode: "image",
   steps: [

@@ -1,7 +1,7 @@
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import AboutAndContact from "../components/sections/AboutAndContact";
-import ContactUsForm from "../components/sections/ConactUsForm";
+import ContactUsForm from "../components/sections/ContactUsForm";
 const AboutAndContactContent = {
   title: "Get in Touch",
   desc: "Have questions? Need support? Get in touch with us!",

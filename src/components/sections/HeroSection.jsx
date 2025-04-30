@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import heroImage from "../assets/Images/Home/hero.jpeg";
-import Button from "./common/Button";
+import heroImage from "../../assets/Images/Home/hero.jpeg";
+import Button from "../common/Button";
 function HeroSection() {
   return (
     <div className="hero-container  flex items-center justify-between py-6">
