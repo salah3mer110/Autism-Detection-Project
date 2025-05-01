@@ -7,6 +7,7 @@ import SignIn from "./pages/SignIn";
 import { useState } from "react";
 import UploadVideo from "./pages/UploadVideo";
 import Activities from "./pages/Activities";
+import ChatBot from "./components/chatbot/Chatbot";
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -22,6 +23,7 @@ function App() {
   // const handleShowSignIn = () => setShowSignIn(true);
   return (
     <div className="App">
+      <ChatBot />
       <Routes>
         <Route path="/" element={<Home onShowSignIn={handleShowSignIn} />} />
         <Route

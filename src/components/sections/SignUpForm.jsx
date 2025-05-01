@@ -41,7 +41,7 @@ function SignUpForm({
 }) {
   function handleSignUpNext(e, btnType) {
     e.preventDefault();
-    if (btnType === "Sign Up") handleSubmit(e);
+    if (btnType === "Create Account") handleSubmit(e);
 
     if (signUpMobility < 3) setSignUpMobility((mobility) => mobility + 1);
   }
@@ -103,7 +103,7 @@ function SignUpForm({
           )}
 
           <Button margin="mt-14" padding="py-2 px-6" onClick={handleSignUpNext}>
-            {signUpMobility === 3 ? `Sign Up` : `Next`}
+            {signUpMobility === 3 ? `Create Account` : `Next`}
           </Button>
         </div>
       </form>
